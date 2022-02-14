@@ -20,6 +20,21 @@
       nodeId: String
     },
 
+    data() {
+      return {
+        isShowCheckBox: true
+      };
+    },
+
+    watch: {
+      'node.refreshFlag'(val) {
+        this.isShowCheckBox = false;
+        this.$nextTick(() => {
+          this.isShowCheckBox = true;
+        });
+      }
+    },
+
     computed: {
       config() {
         return this.panel.config;
@@ -34,10 +49,17 @@
         return this.panel.checkedValue;
       },
       isChecked() {
-        return this.node.isSameNode(this.checkedValue);
+        let config = this.panel.config;
+        if (config.virtualScroll) {
+          return true && this.panel.checkedValueObj[this.node.getValue()];
+        } else {
+          return this.node.isSameNode(this.checkedValue);
+        }
       },
       inActivePath() {
-        return this.isInPath(this.panel.activePath);
+        let inActivePath = this.isInPath(this.panel.activePath);
+        this.node.inActivePath = inActivePath;
+        return inActivePath;
       },
       inCheckedPath() {
         if (!this.config.checkStrictly) return false;
@@ -81,7 +103,8 @@
       },
 
       handleMultiCheckChange(checked) {
-        this.node.doCheck(checked);
+        // this.node.doCheck(checked);
+        this.node.doCheck(checked, false, true);
         this.panel.calculateMultiCheckedValue();
       },
 
@@ -199,7 +222,8 @@
         isLeaf,
         isDisabled,
         config,
-        nodeId
+        nodeId,
+        isShowCheckBox
       } = this;
       const { expandTrigger, checkStrictly, multiple } = config;
       const disabled = !checkStrictly && isDisabled;
@@ -236,7 +260,7 @@
             'is-disabled': disabled
           }}
           {...events}>
-          { this.renderPrefix(h) }
+          { isShowCheckBox && this.renderPrefix(h) }
           { this.renderContent(h) }
           { this.renderPostfix(h) }
         </li>

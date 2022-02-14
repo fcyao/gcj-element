@@ -369,10 +369,10 @@ export class Empty extends ElEmpty {}
 export class Spinner extends ElSpinner {}
 
 /** Description Component */
-export class Descriptions extends ElDescriptions {}
+export class Descripitions extends ElDescriptions {}
 
 /** Description Item Component */
-export class DescriptionsItem extends ElDescriptionsItem {}
+export class DescripitionsItem extends ElDescriptionsItem {}
 
 /** Result Component */
 export class Result extends ElResult {}

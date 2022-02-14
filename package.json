@@ -1,6 +1,6 @@
 {
   "name": "element-ui",
-  "version": "2.15.7",
+  "version": "2.15.5",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
   "files": [
@@ -11,7 +11,7 @@
   ],
   "typings": "types/index.d.ts",
   "scripts": {
-    "bootstrap": "yarn || npm i",
+    "bootstrap": "npm i",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
@@ -65,7 +65,8 @@
     "deepmerge": "^1.2.0",
     "normalize-wheel": "^1.0.1",
     "resize-observer-polyfill": "^1.5.0",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "vue-virtual-scroll-list": "2.3.3"
   },
   "peerDependencies": {
     "vue": "^2.5.17"
@@ -102,7 +103,7 @@
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-cssmin": "^0.2.0",
-    "gulp-dart-sass": "^1.0.2",
+    "gulp-sass": "^4.0.2",
     "highlight.js": "^9.3.0",
     "html-webpack-plugin": "^3.2.0",
     "json-loader": "^0.5.7",
@@ -121,12 +122,12 @@
     "markdown-it-container": "^2.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "mocha": "^6.0.2",
+    "node-sass": "^4.14.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss": "^7.0.14",
     "progress-bar-webpack-plugin": "^1.11.0",
     "rimraf": "^2.5.4",
-    "sass": "^1.34.0",
-    "sass-loader": "^10.1.1",
+    "sass-loader": "^7.1.0",
     "select-version-cli": "^0.0.2",
     "sinon": "^7.2.7",
     "sinon-chai": "^3.3.0",
@@ -140,6 +141,7 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "2.5.21",
     "vue-template-es2015-compiler": "^1.6.0",
+    "vue-virtual-scroll-list": "^2.3.3",
     "webpack": "^4.14.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.11",
