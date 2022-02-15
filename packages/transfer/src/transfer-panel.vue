@@ -64,10 +64,10 @@
 </template>
 
 <script>
-  import ElCheckboxGroup from 'element-ui/packages/checkbox-group';
-  import ElCheckbox from 'element-ui/packages/checkbox';
-  import ElInput from 'element-ui/packages/input';
-  import Locale from 'element-ui/src/mixins/locale';
+  import ElCheckboxGroup from 'gcj-element-ui/packages/checkbox-group';
+  import ElCheckbox from 'gcj-element-ui/packages/checkbox';
+  import ElInput from 'gcj-element-ui/packages/input';
+  import Locale from 'gcj-element-ui/src/mixins/locale';
   import Item from './transfer-checkbox-item.vue';
   import VirtualList from 'vue-virtual-scroll-list';
 

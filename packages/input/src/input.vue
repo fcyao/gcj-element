@@ -108,12 +108,12 @@
   </div>
 </template>
 <script>
-  import emitter from 'element-ui/src/mixins/emitter';
-  import Migrating from 'element-ui/src/mixins/migrating';
+  import emitter from 'gcj-element-ui/src/mixins/emitter';
+  import Migrating from 'gcj-element-ui/src/mixins/migrating';
   import calcTextareaHeight from './calcTextareaHeight';
-  import merge from 'element-ui/src/utils/merge';
-  import {isKorean} from 'element-ui/src/utils/shared';
-  import { formatThousand } from 'element-ui/src/utils/formatter/index';
+  import merge from 'gcj-element-ui/src/utils/merge';
+  import {isKorean} from 'gcj-element-ui/src/utils/shared';
+  import { formatThousand } from 'gcj-element-ui/src/utils/formatter/index';
 
   export default {
     name: 'ElInput',

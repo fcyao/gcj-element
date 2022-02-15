@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import ElCheckbox from 'element-ui/packages/checkbox';
+  import ElCheckbox from 'gcj-element-ui/packages/checkbox';
   export default {
     name: 'transfer-checkbox-item',
     props: {

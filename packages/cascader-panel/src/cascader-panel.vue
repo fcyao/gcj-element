@@ -17,17 +17,17 @@
 <script>
 import CascaderMenu from './cascader-menu';
 import Store from './store';
-import merge from 'element-ui/src/utils/merge';
-import AriaUtils from 'element-ui/src/utils/aria-utils';
-import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
-import emitter from 'element-ui/src/mixins/emitter';
+import merge from 'gcj-element-ui/src/utils/merge';
+import AriaUtils from 'gcj-element-ui/src/utils/aria-utils';
+import scrollIntoView from 'gcj-element-ui/src/utils/scroll-into-view';
+import emitter from 'gcj-element-ui/src/mixins/emitter';
 import {
   noop,
   coerceTruthyValueToArray,
   isEqual,
   isEmpty,
   valueEquals
-} from 'element-ui/src/utils/util';
+} from 'gcj-element-ui/src/utils/util';
 
 const { keys: KeyCode } = AriaUtils;
 const DefaultProps = {
@@ -386,7 +386,7 @@ export default {
               flag && (currentNodeIndex = index);
               return flag;
             });
-            menu.$refs.virtualList && currentNodeIndex === -1 ? menu.$refs.virtualList.reset() : menu.$refs.virtualList.scrollToIndex(currentNodeIndex);
+            menu.$refs.virtualList && currentNodeIndex === -1 ? menu.$refs.virtualList.reset() : menu.$refs.virtualList && menu.$refs.virtualList.scrollToIndex(currentNodeIndex);
           }
         } else {
           const menuElement = menu.$el;

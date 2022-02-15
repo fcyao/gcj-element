@@ -1,8 +1,9 @@
 {
   "name": "gcj-element-ui",
-  "version": "1.0.0",
+  "version": "1.0.6",
+  "private": false,
   "description": "A Component Library for Vue.js.",
-  "main": "lib/element-ui.common.js",
+  "main": "lib/gcj-element-ui.common.js",
   "files": [
     "lib",
     "src",

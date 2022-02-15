@@ -1,11 +1,11 @@
 <script>
-import ElScrollbar from 'element-ui/packages/scrollbar';
+import ElScrollbar from 'gcj-element-ui/packages/scrollbar';
 import CascaderNode from './cascader-node.vue';
-import Locale from 'element-ui/src/mixins/locale';
-import { generateId } from 'element-ui/src/utils/util';
+import Locale from 'gcj-element-ui/src/mixins/locale';
+import { generateId } from 'gcj-element-ui/src/utils/util';
 import virtualListItem from './cascader-virtual-scroll-item.vue';
 import VirtualList from 'vue-virtual-scroll-list';
-import emitter from 'element-ui/src/mixins/emitter';
+import emitter from 'gcj-element-ui/src/mixins/emitter';
 
 export default {
   name: 'ElCascaderMenu',
@@ -130,6 +130,9 @@ export default {
     },
 
     renderEmptyText(h) {
+      if (!h) {
+        return '';
+      }
       return (
         <div class="el-cascader-menu__empty-text">{ this.t('el.cascader.noData') }</div>
       );

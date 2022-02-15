@@ -1,9 +1,9 @@
 import Pager from './pager.vue';
-import ElSelect from 'element-ui/packages/select';
-import ElOption from 'element-ui/packages/option';
-import ElInput from 'element-ui/packages/input';
-import Locale from 'element-ui/src/mixins/locale';
-import { valueEquals } from 'element-ui/src/utils/util';
+import ElSelect from 'gcj-element-ui/packages/select';
+import ElOption from 'gcj-element-ui/packages/option';
+import ElInput from 'gcj-element-ui/packages/input';
+import Locale from 'gcj-element-ui/src/mixins/locale';
+import { valueEquals } from 'gcj-element-ui/src/utils/util';
 
 export default {
   name: 'ElPagination',
