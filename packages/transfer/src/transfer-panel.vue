@@ -9,7 +9,6 @@
         <span>{{ checkedSummary }}</span>
       </el-checkbox>
     </p>
-    
     <div :class="['el-transfer-panel__body', hasFooter ? 'is-with-footer' : '']">
       <el-input
         class="el-transfer-panel__filter"
@@ -24,7 +23,9 @@
           @click="clearQuery"
         ></i>
       </el-input>
+      
       <el-checkbox-group
+        v-if="virtualScroll"
         v-infinite-scroll="loadMore" 
         :infinite-scroll-distance="10"
         v-model="checked"
@@ -32,23 +33,27 @@
         :class="{ 'is-filterable': filterable }"
         class="el-transfer-panel__list">
         <virtual-list 
-          v-if="virtualScroll"
           style="height:100%;overflow-y: auto;"
           :data-key="keyProp"
           :data-sources="filteredData"
           :data-component="itemComponent"
           :extra-props="virtualListProps"
         />
-        <template v-else>
+      </el-checkbox-group>
+      <el-checkbox-group
+        v-else
+        v-model="checked"
+        v-show="!hasNoMatch && data.length > 0"
+        :class="{ 'is-filterable': filterable }"
+        class="el-transfer-panel__list">
           <el-checkbox
             class="el-transfer-panel__item"
             :label="item[keyProp]"
             :disabled="item[disabledProp]"
             :key="item[keyProp]"
-            v-for="item in dataForShow">
+            v-for="item in filteredData">
             <option-content :option="item"></option-content>
           </el-checkbox>
-        </template>
       </el-checkbox-group>
       <p
         class="el-transfer-panel__empty"
