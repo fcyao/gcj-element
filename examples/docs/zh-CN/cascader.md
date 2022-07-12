@@ -1245,7 +1245,7 @@
     :options="options"
     :props="{ multiple: true }"
     filterable
-    filterableCheckall
+    filterable-checkall
     ></el-cascader>
 </div>
 
