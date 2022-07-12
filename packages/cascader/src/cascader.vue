@@ -100,6 +100,12 @@
           view-class="el-cascader__suggestion-list"
           @keydown.native="handleSuggestionKeyDown">
           <template v-if="suggestions.length">
+            <li 
+              v-if="filterableCheckall && multiple" 
+              class="el-cascader__suggestion-item"
+              style="font-weight: 700"
+              @click="handleSuggestionAllClick(suggestions)"
+            >全选</li>
             <li
               v-for="(item, index) in suggestions"
               :key="item.uid"
@@ -227,6 +233,7 @@ export default {
     disabled: Boolean,
     clearable: Boolean,
     filterable: Boolean,
+    filterableCheckall: Boolean,
     filterMethod: Function,
     separator: {
       type: String,
@@ -644,6 +651,18 @@ export default {
         this.checkedValue = targetNode.getValueByOption();
         this.toggleDropDownVisible(false);
       }
+    },
+    handleSuggestionAllClick(suggestions) {
+      let checkState = true;
+      const isAllCheck = suggestions.every(targetNode => targetNode.checked);
+      if (isAllCheck) {
+        checkState = false;
+      }
+      suggestions.map(targetNode => {
+        // const { checked } = targetNode;
+        targetNode.doCheck(checkState);
+        this.panel.calculateMultiCheckedValue();
+      });
     },
     deleteTag(tag) {
       const { checkedValue, panel } = this;

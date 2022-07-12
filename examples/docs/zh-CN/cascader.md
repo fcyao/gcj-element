@@ -1244,7 +1244,9 @@
     placeholder="试试搜索：指南"
     :options="options"
     :props="{ multiple: true }"
-    filterable></el-cascader>
+    filterable
+    filterableCheckall
+    ></el-cascader>
 </div>
 
 <script>
